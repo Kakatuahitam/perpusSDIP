@@ -206,7 +206,7 @@ if (isset($_GET['action']) AND $_GET['action'] == 'print') {
             // ungu 800 #7B1FA2
 
             // edit here                 >>>                          >>>                            for label background     >>>: here \/           \/ for text color (white or black)
-            if ($sysconf['print']['label']['include_header_text']) { $html_str .= '<div class="labelHeaderStyle" style="background-color:#7C4DFF" "color:black">'.($sysconf['print']['label']['header_text']?$sysconf['print']['label']['header_text']:$sysconf['library_name']).'</div>'; }
+            if ($sysconf['print']['label']['include_header_text']) { $html_str .= '<div class="labelHeaderStyle" style="background-color:#2979FF" "color:black">'.($sysconf['print']['label']['header_text']?$sysconf['print']['label']['header_text']:$sysconf['library_name']).'</div>'; }
             // explode label data by space except callnumber
             #$sliced_label = preg_split("/((?<=\w)\s+(?=\D))|((?<=\D)\s+(?=\d))/m",$label);
             $label = preg_replace('!\s+!', ' ', $label);

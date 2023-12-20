@@ -46,7 +46,7 @@ if (isset($_POST['counter'])) {
   if (trim($_POST['memberID']) == '') {
     die(Json::stringify(['message' => __('Member ID can\'t be empty'), 'image' => 'person.png'])->withHeader());
   }
-   
+
   // sleep for a while
   sleep(0);
 
@@ -59,7 +59,8 @@ if (isset($_POST['counter'])) {
     list($memberId, $memberName, $institution, $image) = $visitor->getData();
 
     // default message
-    $message = $memberName . __(', thank you for inserting your data to our visitor log');
+    $message = $memberName . __(', selamat datang di Perpustakaan SD Islam Pembangunan, selamat membaca');
+    // $message = $memberName . __(', thank you for inserting your data to our visitor log');
 
     // Expire message
     if ($visitor->isMemberExpire()) $message = '<div class="error visitor-error">'.__('Your membership already EXPIRED, please renew/extend your membership immediately').'</div>';
@@ -73,7 +74,7 @@ if (isset($_POST['counter'])) {
   } else {
     $message = ENVIRONMENT === 'production' ? __('Error inserting counter data to database!') : $visitor->getError();
   }
-  
+
   // send response
   die(Json::stringify(['message' => $message, 'image' => $image, 'status' => $visitor->getError()])->withHeader());
 }
@@ -120,12 +121,12 @@ $(document).ready( function() {
           cache: false,
           success: function(respond) {
             $('#counterInfo').html(respond.message);
-            $('#text_voice').val(success_text + respond.message); 
+            $('#text_voice').val(success_text + respond.message);
             // reset counter
-            setTimeout(function() { 
+            setTimeout(function() {
               $('#speak').trigger('click');
               $('#visitorCounterPhoto').attr('src', `./images/persons/${respond.image}`);
-              $('#counterInfo').html(defaultMsg); 
+              $('#counterInfo').html(defaultMsg);
               visitorCounterForm.enableForm().find('input[type=text]').val('');
               $('#memberID').focus();
               setTimeout(() => { $('#visitorCounterPhoto').attr('src', `./images/persons/${defaultImg}`); }, 8000);
@@ -139,11 +140,11 @@ $(document).ready( function() {
               var imageSRC = memberImage.data("img");
               $('#visitorCounterPhoto').attr('src', imageSRC);
             }
-            $('#memberID').focus();            
+            $('#memberID').focus();
           },
           error: function(){
             // alert('Error inserting counter data to database!');
-            $('#text_voice').val(error_text);            
+            $('#text_voice').val(error_text);
             $(this).enableForm().find('input[type=text]').val('');
             $('#memberID').focus();
           }

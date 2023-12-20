@@ -9489,7 +9489,7 @@ msgstr "Tidak dapat mengosongkan ID Anggota"
 
 #: lib/contents/visitor.inc.php:62
 msgid ", thank you for inserting your data to our visitor log"
-msgstr ", terimakasih telah memasukkan data Anda pada catatan pengunjung kami"
+msgstr ", selamat datang di Perpustakaan SD Islam Pembangunan"
 
 #: lib/contents/visitor.inc.php:65
 msgid ""
